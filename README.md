@@ -16,3 +16,11 @@ Código criado apenas com fins educacionais
     Note right of Mobile: App Mobile solicitando alguma info.
     Server-->>DeviceGSM: Send command
 ```
+
+## TODO's
+
+- [x] Server
+- [x] Client
+- [x] Broadcast
+- [ ] Handler para http protocol
+
