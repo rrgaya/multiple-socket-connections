@@ -1,8 +1,10 @@
+from abc import abstractmethod
 import threading
 import socket
 
 
-clients = []
+
+clients = [] # DEVERIA SER QUEUE => SQS or MQ
 
 def main():
 
@@ -12,14 +14,39 @@ def main():
         server.bind(('localhost', 7777))
         server.listen()
     except:
-        return print('\nNão foi possível iniciar o servidor!\n')
+        return print('Não foi possível iniciar o servidor')
 
     while True:
         client, addr = server.accept()
         clients.append(client)
 
         thread = threading.Thread(target=messagesTreatment, args=[client])
+        thread = threading.Thread(target=httpRequest, args=[client])
         thread.start()
+
+
+
+def httpTreatment(request):
+    """ Tratar o request e chamar o send command
+        >> send_command_to_device()
+
+        return:
+            device_id, cmd_type
+    """
+    pass
+
+def send_command_to_device(device_id: str, client_id: int):
+    """ Tem a responsabilidade traduzir para o epacket
+
+        Parameters:
+            device_id: str
+            cmd_type: str
+
+        return:
+            hex com single location
+    """
+    pass
+
 
 def messagesTreatment(client):
     while True:
@@ -41,6 +68,6 @@ def broadcast(msg, client):
 
 
 def deleteClient(client):
-    clients.remove(client)
+    clients.remove(client) # SQS or RabbitMQ 
 
 main()

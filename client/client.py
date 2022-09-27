@@ -11,7 +11,7 @@ def main():
     except:
         return print('Não foi possívvel se conectar ao servidor!')
 
-    username = input('Usuário> ')
+    username = input('Device> ')
     print('Conectado')
 
     thread1 = threading.Thread(target=receiveMessages, args=[client])
