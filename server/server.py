@@ -1,4 +1,5 @@
 from abc import abstractmethod
+from dataclasses import dataclass
 import threading
 import socket
 
@@ -21,9 +22,9 @@ def main():
         clients.append(client)
 
         thread = threading.Thread(target=messagesTreatment, args=[client])
-        thread = threading.Thread(target=httpRequest, args=[client])
+        thread_http = threading.Thread(target=httpTreatment, args=[client])
         thread.start()
-
+        thread_http.start()
 
 
 def httpTreatment(request):
@@ -71,3 +72,11 @@ def deleteClient(client):
     clients.remove(client) # SQS or RabbitMQ 
 
 main()
+
+
+class Pruma:
+    def __init__(self, id: int, office: str, status: bool) -> None:
+        pass
+
+    def get(self):
+        pass
