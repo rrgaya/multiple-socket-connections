@@ -23,6 +23,7 @@ Código criado apenas com fins educacionais
     Server-->>DeviceGSM: Send command
 ```
 
+
 ## TODO's
 
 - [x] Server
@@ -30,3 +31,17 @@ Código criado apenas com fins educacionais
 - [x] Broadcast
 - [ ] Handler para http protocol
 
+
+
+```mermaid
+    sequenceDiagram
+    participant Client
+    participant OAM
+    participant API_AQ
+    participant Database
+    participant Domain
+
+    Client-->>OAM: Lorem
+    API_AQ-->>OAM: Lorem
+    API_AQ-->>Domain: Lorem
+```
