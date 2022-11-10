@@ -29,4 +29,3 @@ Código criado apenas com fins educacionais
 - [x] Server
 - [x] Client
 - [x] Broadcast
-- [ ] Handler para http protocol
